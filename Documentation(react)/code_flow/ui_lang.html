@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>React - Documentation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    
+    <!-- Syntax Hightlighter CSS -->
+    <link href="../css/prism.css" rel="stylesheet">
+  
+    <!-- Custom CSS -->
+    <link href="../css/style.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <div id="wrapper" class="toggled">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <h4>UI and Languages</h4>
+                </li>
+                <li>
+                    <a href="#brand" class="cur">Brand/Project Name</a>
+                </li>
+                <li>
+                    <a href="#menu">Navigation Menu</a>
+                </li>
+                <li>
+                    <a href="#components">Component Variant</a>
+                </li>
+                <li>
+                    <a href="#theme">Change Layout(RTL) and Theme</a>
+                </li>
+                <li>
+                    <a href="#youtube" class="cur">Youtube Config</a>
+                </li>
+                <li>
+                    <a href="#lang">Set Language</a>
+                </li>
+            </ul>
+            <a class="back" href="../index.html"><i class="glyphicon glyphicon-arrow-left"></i> Back to Main Docs</a>
+            <span class="copy">&copy; Copyright 2022</span>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- main content -->
+        <div id="page-content-wrapper">
+          <div class="container-fluid">
+            <!-- BRANDING -->
+            <section class="row" id="brand">
+                <br /><br />
+                <div class="col-lg-10">
+                    <h1>Brand/Project Name</h1>
+                    <hr />
+                    <ul>
+                      <li>Open <code>/public/text/brand.js</code></li>
+                      <li>
+                        Here's bellow the available brand attribute
+                        <pre><code class="language-js">
+module.exports = {
+  starter: {
+    name: 'Oiron Starter',
+    desc: 'Oiron Starter - React Starter Template',
+    prefix: 'Oiron',
+    footerText: 'Oiron Theme All Rights Reserved 2021',
+    logoText: 'Oiron Theme',
+    projectName: 'Starter Project',
+    url: 'oiron.ux-maestro.com',
+    img: '/public/images/logo.png',
+    notifMsg: 'Donec sit amet nulla sed arcu pulvinar ultricies commodo id ligula.'
+  }
+};
+</code></pre>
+                      </li>
+                      <li>
+                        Those attribute will affect in HTML &lsaquo;head&rsaquo; content and other branding name
+                      </li>
+                    </ul>
+                </div>
+            </section>
+            <!-- END -->
+
+            <!-- NAVIGATION -->
+            <section class="row" id="menu">
+                <br /><br />
+                <div class="col-lg-12">
+                    <h1>Navigation Menu</h1>
+                    This template has 2 type of menu, there are desktop and mobile version. And has 3 header navigation (accross the routes) layout, there are Mixed, Dropdown List and Mega Menu.
+                    <hr />
+                    <ul>
+                      <li>For Desktop: <code>/components/Header/TopNav/[MegaMenu, MixedNav, MultiLevel].js</code></li>
+                      <li>For Mobile: <code>/components/Header/SideNav/[MegaMobile, MixedMobile, MultiMobile].js</code></li>
+                      <li>
+                        Those components get the list data from <code>/components/Header/data/*.js</code>
+                      </li>
+                      <li>
+                        Once create a new page, then if you want to add in navigation menu (header and mobile sidebar),
+                        you can put the page route in <code>/components/Header/data/sample-pages.js</code>. The format is in JSON, you can put the URL in link attribute.
+                        <pre class=" language-js"><code class=" language-js"><span class="token comment">// components/Header/data/sample-pages.js</span>
+<span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'Sample Page'</span><span class="token punctuation">,</span>
+  link<span class="token punctuation">:</span> <span class="token string">'/sample-page'</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+        </code></pre>
+                        By default this template uses variable object from <code>public/text/link.js</code>. But it can be uses by hardcoded as well.
+                      </li>
+                      <li>
+                        Here's bellow the diagram routing menu to be displayed in UI Component
+                        <iframe frameborder="0" style="width:100%;height:700px;" src="./diagram.drawio.html"></iframe>
+                      </li>
+                    </ul>
+                </div>
+            </section>
+            <!-- END -->
+            
+            <!-- COMPONENT VARIANT -->
+            <section class="row" id="components">
+              <div class="col-lg-10">
+                <h1>Component Variants</h1>
+                <p>
+                  This template come with some variant main components that easy to use.
+                  To change Header, Footer, and Corner component, please open in theme config <code>theme/config.js</code>, and just change value then all components will be updated.
+                  Here's the available values:
+                </p>
+                <table class="tg" width="100%">
+                  <tbody>
+                    <tr>
+                      <th class="tg-yw4l">Key</th>
+                      <th class="tg-yw4l">Type</th>
+                      <th class="tg-yw4l">Available Value</th>
+                      <th class="tg-yw4l">Example</th>
+                    </tr>
+                    <tr>
+                      <td class="tg-yw4l"><code>Header</code></td>
+                      <td valign="top">String</td>
+                      <td>
+                        <code>mixed</code>,
+                        <code>basic</code>,
+                        <code>droplist</code>,
+                        <code>mega</code>,
+                        <code>hamburger</code>,
+                        <code>navscroll</code>,
+                        <code>search</code>
+                      </td>
+                      <td valign="top"><code>header: 'mixed'</code></td>
+                    </tr>
+                    <tr>
+                      <td class="tg-yw4l"><code>Header</code></td>
+                      <td valign="top">String</td>
+                      <td>
+                        <code>basic</code>,
+                        <code>sitemap</code>,
+                        <code>blog</code>,
+                        <code>contact</code>
+                      </td>
+                      <td valign="top"><code>footer: 'blog'</code></td>
+                    </tr>
+                    <tr>
+                      <td class="tg-yw4l"><code>Footer</code></td>
+                      <td valign="top">String</td>
+                      <td>
+                        <code>chat</code>,
+                        <code>nav</code>
+                      </td>
+                      <td valign="top"><code>corner: 'chat'</code></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br>
+                <hr>
+                <h4>Header</h4>
+                <p>
+                  Header component used for navigation and some site settings. 
+                  It's more flexible with 7 type of headers:
+                </p>
+                <ul>
+                  <li>Basic: <code>basic</code></li>
+                  <li>Search: <code>search</code></li>
+                  <li>DropList: <code>droplist</code> <em>(it has routing navigation)</em></li>
+                  <li>MegaMenu: <code>mega</code> <em>(it has routing navigation)</em></li>
+                  <li>Hamburger Menu: <code>hamburger</code> <em>(it has scroll navigation)</em></li>
+                  <li>Scroll Navigation: <code>navscroll</code> <em>(it has scroll navigation)</em></li>
+                  <li>Mixed: <code>mixed</code> <em>(Scroll Navigation + Mega Menu)</em></li>
+                </ul>
+                <p>
+                  In <code>theme/config.js</code> you can edit <code>header</code> value to change the header type. 
+                  The changes will affected to all pages containing header except Blog and Auth (login &amp; register).
+                </p>
+                <pre class=" language-js"><code class=" language-js"><span class="token comment">// theme/config.js</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">state</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  header<span class="token punctuation">:</span> <span class="token string">'mixed'</span><span class="token punctuation">,</span> <span class="token comment">/* available: mixed, basic, droplist, mega, hamburger, navscroll, search */</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+  </code></pre>
+              <br>
+              <p>
+                <strong>Mega menu and Dropdown menu</strong> have submenu that can be accessed by clicking the parent menu.
+                But It can be accessed using hover instead of clicking by change the data.
+              </p>
+              <ul>
+                <li>
+                  *For Droplist.js you have to import <code>MultiLevel</code>
+                  component from <code>TopNav/MultiLevelHover.js</code>
+                  <pre class=" language-js"><code class=" language-js"><span class="token comment">// components/Header/Droplist.js</span>
+
+  <span class="token comment">Import MultiLevelHover./span>
+  <span class="token keyword">import</span> MultiLevel <span class="token keyword">from</span> <span class="token string">'./TopNav/MultiLevelHover'</span>
+
+    </code></pre>
+                </li>
+              </ul>
+              <br>
+                <hr>
+                <h4>Footer</h4>
+                <p>
+                  Footer component used for many purpose, such as navigation, contact, additional link, or just copyright mark. 
+                  This template provide 4 Footer variants
+                </p>
+                <ul>
+                  <li>Basic: <code>basic</code></li>
+                  <li>Sitemap: <code>sitemap</code></li>
+                  <li>Blog: <code>blog</code></li>
+                  <li>Contact: <code>contact</code></li>
+                </ul>
+                <p>
+                  In <code>theme/config.js</code> you can edit <code>footer</code> value to change the footer type. 
+                  The changes will affected to all pages except Maintenance and Coming Soon which doesn't uses footer.
+                </p>
+                <pre class=" language-js"><code class=" language-js"><span class="token comment">// theme/config.js</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">state</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  header<span class="token punctuation">:</span> <span class="token string">'mixed'</span><span class="token punctuation">,</span> <span class="token comment">/* available: mixed, basic, droplist, mega, hamburger, navscroll, search */</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+  </code></pre>
+                 <br>
+                <hr>
+                <h4>Bottom Corner</h4>
+                <p>
+                  The additional components for homepage placed on the bottom right corner.
+                  There are 2 variant, Chat Panel and Single Page Navigation. 
+                  The Corner component itself imported from <code>'~/components/Home/Corner'</code>
+                </p>
+                <pre class=" language-js"><code class=" language-js">
+<span class="token keyword">import</span> Corner <span class="token keyword">from</span> <span class="token string">'~/components/Home/Corner'</span>
+<span class="token keyword">return ( </span>
+  <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>Corner <span class="token operator">/</span><span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token keyword"> ) </span>
+
+
+  </code></pre>
+                <ul>
+                  <li>Chat Panel: <code>chat</code></li>
+                  <li>Single Page Navigation: <code>nav</code></li>
+                </ul>
+                <p>
+                  To use it, in <code>theme/config.js</code> you can edit <code>corner</code> value to change the corner type. 
+                  The changes only affected in homepage.
+                  By default it's only implemented in homepage, but you can use <code>Corner</code> component for another page
+                </p>
+                <pre class=" language-js"><code class=" language-js"><span class="token comment">// theme/config.js</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">usState</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  corner<span class="token punctuation">:</span> <span class="token string">'chat'</span> <span class="token comment">/* chat, nav */</span>
+<span class="token punctuation">};</span>
+  </code></pre>
+                <br>
+              </div>
+            </section>
+            <!-- END -->
+
+            <!-- THEME -->
+            <section class="row" id="theme">
+              <div class="col-lg-10">
+                <h1>Change Layout(RTL) and Theme</h1>
+                <hr />
+                    <br /><br />
+                    This template has <strong>24 Themes with dark/light</strong> appearance.
+                    And also support for <strong>RTL</strong> direction.
+                    You can change the layout via theme panel but not permanently. To make the layout permanent just follow this step. <br /> <br />
+                    <ul>
+                      <li>Open <code>/pages/_app.js</code></li>
+                      <li>
+                        Then change the <code>state.theme</code> value. Here's the available api:
+                        <table class="tg">
+                          <tbody>
+                            <tr>
+                              <th class="tg-yw4l">Key</th>
+                              <th class="tg-yw4l">Type</th>
+                              <th class="tg-yw4l">Available Value</th>
+                              <th class="tg-yw4l">Example</th>
+                            </tr>
+                            <tr>
+                              <td class="tg-yw4l"><code>Color:</code></td>
+                              <td valign="top">String</td>
+                              <td>
+                                <code>'oceanBlue'</code>,
+                                <code>'greenLeaf'</code>,  <br />
+                                <code>'greyscale'</code>,
+                                <code>'cloud'</code>,  <br />
+                                <code>'violet'</code>,
+                                etc
+                              </td>
+                              <td valign="top"><code>...appTheme('oceanBlue', themeType),</code></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-yw4l"><code>Theme mode:</code></td>
+                              <td valign="top">String</td>
+                              <td>
+                                <code>'light'</code>,
+                                <code>'dark'</code>,
+                              </td>
+                              <td valign="top"><code>...appTheme('oceanBlue', 'dark'),</code></td>
+                            </tr>
+                            <tr>
+                              <td class="tg-yw4l"><code>direction:</code></td>
+                              <td valign="top">String</td>
+                              <td>
+                                <code>ltr</code>,
+                                <code>rtl</code>,
+                              </td>
+                              <td valign="top"><code>direction: 'rtl'</code></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <br />
+                        <strong>Here's the complete code, for greenLeaf color in dark mode with RTL direction</strong>
+                            <pre><code class="language-js">// file: app/redux/modules/uiReducer.js
+   const [theme, setTheme] = useState({
+    ...appTheme('greenLeaf', 'dark'),
+    direction: 'rtl'
+  });
+    </code></pre>
+                      </li>
+                    </ul>
+                  <br /><br />
+              </div>
+            </section>
+            
+            
+            
+            <!-- Youtube -->
+            <section class="row" id="youtube">
+              <div class="col-lg-10">
+                <h1>Youtube Config</h1>
+                <hr />
+                <p>
+                  This template us <strong>React Youtube</strong> a simple react component acting as a thin layer over the YouTube IFrame Player API.
+                  To use this feature we recommend to use https in production. If not there will be some warnings in browser console related cookies and security.
+                </p>
+                <p>
+                  You can disable this feature by open <code>/youtube.js</code> then set set <code>use: false</code>.
+                </p>
+              </div>
+            </section>
+            
+            <!-- End -->
+            
+            
+            
+            <!-- NAVIGATION -->
+            <section class="row" id="lang">
+                <br /><br />
+                <div class="col-lg-10">
+                    <h1>Set Language</h1>
+                    <hr />
+                    <br /><br />
+                    <ul>
+                      <li>
+                        <h5>
+                          To set default language
+                        </h5>
+                        <ol>
+                          <li>Open <code>/i18n.js</code></li>
+                          <li>change <code>defaultLanguage: 'en'</code> to other initial locale i.e. <code>id</code> for Bahasa Indonesia</li>
+                        </ol>
+                      </li>
+                      <li>
+                        <h5>
+                          Add new language
+                        </h5>
+                        <ol>
+                          <li>
+                            By default, next-i18next expects your translations to be organised as such by create new language JSON library in <code>/public/locales/[localCode]/</code>
+                            <pre>
+└── public
+    └── locales
+        ├── en
+        |   └── common.json
+        └── de
+            └── common.json
+                            </pre>
+                          </li>
+                          <li>You can check the available local code here <a href="https://github.com/ladjs/i18n-locales" target="_blank">https://github.com/ladjs/i18n-locales</a></li>
+                          <li>Then register it in <code>/i18n.js</code></li>
+                          <li>
+                            Declaring namespace dependencies in <code>_document.js</code>
+                            <pre>
+                              <code class="language-js">
+MyDocument.getInitialProps = async ctx => {
+  return {
+    namespacesRequired: ['common', 'landing-theme'],
+  }
+})
+                              </code>
+                            </pre>
+                          </li>
+                        </ol>
+                      </li>
+                      <li>
+                            <h5>
+                              Put the messages to the React Components
+                            </h5>
+                            <ol>
+                              <li>Choose page that one to be translated, i.e <code>/pages/index.js</code></li>
+                              <li>
+                                Then add namespace dependencies
+                                <pre>
+                                  <code class="language-js">
+Landing.getInitialProps = async () => ({
+  namespacesRequired: ['common', 'landing-theme'],
+})
+                                  </code>
+                                </pre>
+                              </li>
+                              <li>Pick one of sample <strong>Components</strong> with cointaining text</li>
+                              <li>Import withTranslation <br />
+                                 <pre><code class="language-js">
+import { withTranslation } from '~/i18n';                              
+                                 </code></pre>
+                              </li>
+                              <li>Basically the message value is <strong>String</strong>. And next step is replace/add every string in components</li>
+                              <li>
+                                Register <code>t</code> function to props
+                                <pre>
+                                  <code class="language-js">
+t: PropTypes.func.isRequired
+                                  </code>
+                                </pre>
+                              </li>
+                              <li>
+                                Add messages inside components <br />
+                                <pre>
+                                  <code class="language-js">
+&lt;Typography component="p"&gt;
+  {t('landing-theme:footer_counter')}
+&lt;Typography&gt;
+                                  </code>
+                                </pre>
+                              </li>
+                              <li>
+                                The last step, wrap the component with <code>withTranslation</code>, then open your translated page.
+                                <pre>
+                                  <code class="language-js">
+export default withTranslation(['landing-theme'])(Counter);
+                                  </code>
+                                </pre>
+                              </li>
+                            </ol>
+                          </li>
+                    </ul>
+                </div>
+            </section>
+          </div>
+        </div>
+        <!-- END -->
+      
+      <br /><br />
+            <!-- END -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+  
+    <!-- Syntax Highligher -->
+    <script src="../js/prism.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.bundle.js"></script>
+
+    <!-- Jquery scrollTo -->
+    <script src="../js/jquery.nav.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+        $(document).ready(function() {
+        	$('#sidebar-wrapper .sidebar-nav').onePageNav();
+        });
+    </script>
+
+</body>
+
+</html>
